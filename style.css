@@ -113,14 +113,6 @@ button {
   flex: 1 1 45%;
 }
 
-/* スマホ対応の基本スタイル */
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 1em;
-  background-color: #f9f9f9;
-}
-
 /* テーブルを横スクロール可能に */
 #table-container {
   overflow-x: auto;

@@ -85,7 +85,7 @@ function addColumn() {
       const input = document.createElement("input");
       input.type = "text";
       input.placeholder = `セル ${i + 1}-${resultStartIndex + 1}`;
-      input.value = "0";
+      input.value = "";
       input.addEventListener("input", updateCalculatedValues);
       cell.appendChild(input);
     }
@@ -145,11 +145,8 @@ function updateCalculatedValues() {
     for (let j = 1; j < colCount - 2; j++) {
       const input = row.cells[j]?.querySelector("input");
       if (input) {
-        if (input.value.trim() === "") {
-          input.value = "0";
-        }
-        const value = parseFloat(input.value) || 0;
-        total += value;
+        const value = parseFloat(input.value); 
+        if (!isNaN(value)) { total += value; }
       }
     }
 

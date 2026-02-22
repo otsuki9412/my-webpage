@@ -8,7 +8,7 @@
 <body>
   <div class="container" id="login-form">
     <h2>ログイン</h2>
-    <form onsubmit="return login()">
+    <form id="login-form" onsubmit="return login(event)">
       <input type="text" id="username" placeholder="ユーザー名" required>
       <input type="password" id="password" placeholder="パスワード" required>
       <input type="submit" value="ログイン">
@@ -33,16 +33,12 @@
     <option value="5">5</option>
     <option value="10">10</option>
   </select>
-</div>
-
-    <table id="dynamic-table"></table>
-  </div>
-
-  <script src="script.js"></script>
-  <script src="table.js"></script>
   <div id="table-container">
   <table id="dynamic-table"></table>
 </div>
 
+  <script src="script.js"></script>
+  <script src="table.js"></script>
+  
 </body>
 </html>
