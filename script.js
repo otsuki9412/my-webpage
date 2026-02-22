@@ -46,4 +46,30 @@ function createInputCell(i, j) {
   input.addEventListener("input", updateCalculatedValues);
   return input;
 }
+function copyTableToClipboard() {
+  const table = document.getElementById("dynamic-table");
+  let csv = "";
+
+  for (let i = 1; i < table.rows.length; i++) {
+    const row = table.rows[i];
+    const cells = [];
+    for (let j = 0; j < row.cells.length; j++) {
+        // 結果①の直前に矢印を追加 
+        if (j === colCount - 2) { cells.push("→"); }
+      const input = row.cells[j].querySelector("input");
+      const value = input ? input.value : "";
+      cells.push(value);
+    }
+    csv += cells.join(",") + "\n";
+  }
+
+  // クリップボードにコピー！
+  navigator.clipboard.writeText(csv).then(() => {
+    alert("表の内容をコピーしました！📋");
+  }).catch(err => {
+    alert("コピーに失敗しました…💦");
+    console.error(err);
+  });
+}
+
 

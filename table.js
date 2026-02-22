@@ -107,31 +107,7 @@ function removeColumn() {
   }
 }
 
-function saveTableAsCSV() {
-  const table = document.getElementById("dynamic-table");
-  let csv = "";
 
-  for (let i = 0; i < table.rows.length; i++) {
-    const row = table.rows[i];
-    const cells = [];
-    for (let j = 0; j < row.cells.length; j++) {
-      const input = row.cells[j].querySelector("input");
-      const value = input ? input.value : "";
-      // ダブルクオートで囲んで、カンマや改行を安全に処理
-      cells.push(`"${value.replace(/"/g, '""')}"`);
-    }
-    csv += cells.join(",") + "\n";
-  }
-
-  // Blobを使ってダウンロード
-  const blob = new Blob([csv], { type: "text/csv" });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "table.csv";
-  a.click();
-  URL.revokeObjectURL(url);
-}
 
 function updateCalculatedValues() {
   const table = document.getElementById("dynamic-table");
