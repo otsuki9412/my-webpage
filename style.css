@@ -1,0 +1,175 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e0f7fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  text-align: center;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="submit"],
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #00bcd4;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background-color: #0097a7;
+}
+
+#error-message {
+  color: red;
+}
+
+#welcome {
+  display: none;
+}
+
+
+
+/* 追加・変更部分だけ抜粋 */
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 15px;
+  table-layout: fixed;
+}
+
+td {
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+}
+
+td input {
+  width: 100%;
+  height: 40px;
+  border: none;
+  padding: 8px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* 行と列の間に太い線を追加 */
+td:nth-child(2) {
+  border-left: 4px solid #000;
+}
+/* 最後の列の1つ前との間に太線を追加 */ 
+td:last-child { 
+    border-left: 4px solid #000; 
+}
+
+tr:nth-child(2) td {
+  border-top: 4px solid #000;
+}
+
+/* 表全体の外枠を太くする */ 
+#dynamic-table { 
+    border: 4px solid #000; 
+    border-collapse: separate; 
+    border-spacing: 0; margin-top: 
+    15px; table-layout: fixed; 
+    width: 100%; 
+    font-size: 18px; 
+}
+
+#table-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  flex: 1 1 45%;
+}
+
+/* スマホ対応の基本スタイル */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 1em;
+  background-color: #f9f9f9;
+}
+
+/* テーブルを横スクロール可能に */
+#table-container {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 600px; /* スクロールを発生させるための最小幅 */
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px;
+  font-size: 16px;
+}
+
+/* セレクトボックスとボタンも大きめに */
+#multiplier-container {
+  margin: 1em 0;
+}
+
+select, button {
+  font-size: 16px;
+  padding: 8px 12px;
+  margin-right: 8px;
+}
+
+/* スマホ画面に合わせて調整 */
+@media (max-width: 600px) {
+  table {
+    font-size: 14px;
+  }
+
+  input[type="text"] {
+    font-size: 14px;
+    padding: 4px;
+  }
+
+  select, button {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}
