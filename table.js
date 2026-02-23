@@ -1,3 +1,4 @@
+let adjustmentNotes = []; // 調整内容を記録する配列
 let rowCount = 5;
 let colCount = 4;
 
@@ -33,8 +34,9 @@ cell.appendChild(input);
 
     }
   }
-
+loadTableData(); // ← ここで復元！
   updateCalculatedValues();
+
 }
 
 
@@ -131,7 +133,17 @@ function updateCalculatedValues() {
     const result2 = row.cells[colCount - 1]?.querySelector("input");
 
     if (result1) result1.value = total;
-    if (result2) result2.value = total * multiplier;
+    if (result2) {
+  // 調整済みかどうかをチェック
+  if (result2.dataset.adjusted === "true") {
+    // 調整済みなら値をそのまま維持
+    // 何もしない
+  } else {
+    result2.value = total * multiplier;
+  }
+}
+
+    //if (result2) result2.value = total * multiplier;
   }
 
   // 色変更処理（省略せずにここに続けてOK！）
@@ -168,7 +180,41 @@ function updateCalculatedValues() {
       }
     }
   }
+  saveTableData();
+
 }
+function saveTableData() {
+  const table = document.getElementById("dynamic-table");
+  const data = [];
+
+  for (let i = 1; i < table.rows.length; i++) {
+    const row = [];
+    for (let j = 0; j < table.rows[i].cells.length; j++) {
+      const input = table.rows[i].cells[j].querySelector("input");
+      row.push(input ? input.value : "");
+    }
+    data.push(row);
+  }
+
+  localStorage.setItem("tableData", JSON.stringify(data));
+}
+
+function loadTableData() {
+  const saved = localStorage.getItem("tableData");
+  if (!saved) return;
+
+  const data = JSON.parse(saved);
+  for (let i = 0; i < data.length; i++) {
+    for (let j = 0; j < data[i].length; j++) {
+      const input = document.getElementById("dynamic-table").rows[i + 1].cells[j].querySelector("input");
+      if (input) input.value = data[i][j];
+    }
+  }
+
+  updateCalculatedValues();
+  saveTableData(); // ← 追加！
+}
+
 
 
 
