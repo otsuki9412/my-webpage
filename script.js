@@ -61,7 +61,7 @@ function copyTableToClipboard() {
   const table = document.getElementById("dynamic-table");
   let csv = "";
 
-  for (let i = 0; i < table.rows.length; i++) {
+  for (let i = 1; i < table.rows.length; i++) {
     const row = table.rows[i];
     const cells = [];
 
