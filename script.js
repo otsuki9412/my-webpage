@@ -81,7 +81,7 @@ function copyTableToClipboard() {
       cells[cells.length - 1] += ` ${note.note}`;
     }
 
-    csv += cells.join(",") + "\n";
+    csv += cells.join(" ") + "\n";
   }
 
   navigator.clipboard.writeText(csv).then(() => {
